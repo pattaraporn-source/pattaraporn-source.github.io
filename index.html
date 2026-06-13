@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดินแดนแห่งการเรียนรู้แสนสนุก - อนุบาล 3</title>
+    <meta name="description" content="สื่อการเรียนรู้ออนไลน์แสนสนุกสำหรับเด็กอนุบาล 3 อายุ 6 ขวบ พัฒนาการคิดเชิงเหตุผล การร่วมมือร่วมใจ และกิจกรรมสร้างสรรค์">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Sriracha&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Bubble Effect Container -->
+    <div id="bubble-container"></div>
+
+    <!-- Music Enable Banner for First User Interaction -->
+    <div id="music-welcome-banner" class="welcome-overlay">
+        <div class="welcome-card">
+            <div class="card-mascot">
+                <!-- Sun SVG -->
+                <svg viewBox="0 0 100 100" width="120" height="120">
+                    <circle cx="50" cy="50" r="25" fill="#facc15" class="sun-body"/>
+                    <g stroke="#facc15" stroke-width="6" stroke-linecap="round" class="sun-rays">
+                        <line x1="50" y1="10" x2="50" y2="20" />
+                        <line x1="50" y1="80" x2="50" y2="90" />
+                        <line x1="10" y1="50" x2="20" y2="50" />
+                        <line x1="80" y1="50" x2="90" y2="50" />
+                        <line x1="22" y1="22" x2="29" y2="29" />
+                        <line x1="71" y1="71" x2="78" y2="78" />
+                        <line x1="22" y1="78" x2="29" y2="71" />
+                        <line x1="71" y1="22" x2="78" y2="29" />
+                    </g>
+                    <!-- Smile Face -->
+                    <circle cx="43" cy="45" r="3" fill="#1e293b"/>
+                    <circle cx="57" cy="45" r="3" fill="#1e293b"/>
+                    <path d="M 40 55 Q 50 65 60 55" stroke="#1e293b" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1>ยินดีต้อนรับสู่ดินแดนแสนสนุก! 🌟</h1>
+            <p>มาเรียนรู้ เล่นสนุก และสะสมดาวเด็กดีกันเถอะครับ!</p>
+            <button id="btn-start" class="btn btn-primary btn-large">เริ่มเล่นและเปิดเสียงดนตรี 🎵</button>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="header-logo">
+            <span class="logo-emoji">⭐</span>
+            <span class="logo-text">ดินแดนแสนสนุก</span>
+        </div>
+        <nav class="header-nav">
+            <a href="#section-logic" class="nav-link btn-pink">🧩 เกมคิดเก่ง</a>
+            <a href="#section-teamwork" class="nav-link btn-blue">🤝 เด็กดีมีน้ำใจ</a>
+            <a href="#section-music" class="nav-link btn-green">🎵 ดนตรีแสนสนุก</a>
+            <a href="#section-reward" class="nav-link btn-yellow">🏆 ใบประกาศเด็กดี</a>
+        </nav>
+        <div class="score-display">
+            <span class="star-icon">⭐</span>
+            <span id="star-count">0</span> / 5 ดวง
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="app-container">
+
+        <!-- Welcome Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>สวัสดีครับเพื่อนๆ อนุบาล 3! 👋</h1>
+                <p class="hero-subtitle">วันนี้พี่หมีใจดีและผองเพื่อน จะพามาเล่นเกมน่ารักๆ และรับรางวัลใหญ่กันนะ!</p>
+                <div class="mascot-row">
+                    <!-- Rabbit Mascot SVG -->
+                    <div class="mascot-container animate-bounce">
+                        <svg viewBox="0 0 100 100" width="100" height="100">
+                            <!-- Ears -->
+                            <ellipse cx="38" cy="25" rx="8" ry="22" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+                            <ellipse cx="38" cy="27" rx="4" ry="15" fill="#fecdd3"/>
+                            <ellipse cx="62" cy="25" rx="8" ry="22" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+                            <ellipse cx="62" cy="27" rx="4" ry="15" fill="#fecdd3"/>
+                            <!-- Face -->
+                            <circle cx="50" cy="55" r="25" fill="#ffffff" stroke="#ea580c" stroke-width="2" style="fill:#fffcf9;"/>
+                            <!-- Eyes -->
+                            <circle cx="42" cy="50" r="3" fill="#1e293b"/>
+                            <circle cx="58" cy="50" r="3" fill="#1e293b"/>
+                            <!-- Nose -->
+                            <polygon points="50,56 46,53 54,53" fill="#f43f5e"/>
+                            <!-- Mouth -->
+                            <path d="M 46 60 Q 50 63 54 60" stroke="#1e293b" stroke-width="2" fill="none"/>
+                            <!-- Cheeks -->
+                            <circle cx="36" cy="56" r="3" fill="#fda4af"/>
+                            <circle cx="64" cy="56" r="3" fill="#fda4af"/>
+                        </svg>
+                        <p class="mascot-name">พี่ต่ายนำทาง</p>
+                    </div>
+
+                    <!-- Bear Mascot SVG -->
+                    <div class="mascot-container animate-wiggle">
+                        <svg viewBox="0 0 100 100" width="110" height="110">
+                            <!-- Ears -->
+                            <circle cx="28" cy="30" r="14" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+                            <circle cx="28" cy="30" r="8" fill="#fef3c7"/>
+                            <circle cx="72" cy="30" r="14" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+                            <circle cx="72" cy="30" r="8" fill="#fef3c7"/>
+                            <!-- Face -->
+                            <circle cx="50" cy="58" r="28" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+                            <!-- Snout -->
+                            <ellipse cx="50" cy="65" rx="12" ry="8" fill="#fef3c7"/>
+                            <ellipse cx="50" cy="62" rx="4" ry="2.5" fill="#78350f"/>
+                            <!-- Eyes -->
+                            <circle cx="40" cy="52" r="3.5" fill="#1e293b"/>
+                            <circle cx="60" cy="52" r="3.5" fill="#1e293b"/>
+                            <!-- Mouth -->
+                            <path d="M 47 67 Q 50 71 53 67" stroke="#78350f" stroke-width="2" fill="none"/>
+                            <!-- Cheeks -->
+                            <circle cx="34" cy="60" r="3" fill="#fb7185" opacity="0.6"/>
+                            <circle cx="66" cy="60" r="3" fill="#fb7185" opacity="0.6"/>
+                        </svg>
+                        <p class="mascot-name">พี่หมีใจดี</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: LOGICAL THINKING -->
+        <section id="section-logic" class="game-card card-yellow">
+            <div class="section-badge">การเรียนรู้ระดับที่ 1: การคิดวิเคราะห์และแก้ปัญหา 🧩</div>
+            <h2>เกมคิดเก่ง แก้ปัญหาได้ 🍉🧸</h2>
+            <p class="instruction-text">กดคลิกเพื่อช่วยพี่หมีคัดแยกสิ่งของลงตะกร้าให้ถูกต้อง หรือจับคู่รูปทรงให้ตรงรูปร่างนะเด็กๆ!</p>
+            
+            <div class="tab-buttons">
+                <button id="btn-tab-sort" class="tab-btn active">🧺 คัดแยกของเล่น & ผลไม้</button>
+                <button id="btn-tab-shape" class="tab-btn">📐 จับคู่รูปทรงแปลงร่าง</button>
+            </div>
+
+            <!-- Game A: Sorting Game -->
+            <div id="game-sort-container" class="tab-content active">
+                <div class="game-instruction-box">
+                    <p>💡 <b>วิธีเล่น:</b> คลิกที่สิ่งของด้านล่าง แล้วคลิกที่ตะกร้า <b>"ตะกร้าผลไม้" 🍉</b> หรือ <b>"ตะกร้าของเล่น" 🧸</b> เพื่อแยกของให้ถูกต้องครบทุกชิ้นนะ!</p>
+                </div>
+                
+                <div class="sorting-arena">
+                    <!-- Fruit Basket -->
+                    <div id="basket-fruits" class="basket-box target-zone" data-type="fruit">
+                        <div class="basket-icon">🍉</div>
+                        <h3>ตะกร้าผลไม้</h3>
+                        <div class="basket-items-area"></div>
+                    </div>
+                    
+                    <!-- Toy Basket -->
+                    <div id="basket-toys" class="basket-box target-zone" data-type="toy">
+                        <div class="basket-icon">🧸</div>
+                        <h3>ตะกร้าของเล่น</h3>
+                        <div class="basket-items-area"></div>
+                    </div>
+                </div>
+
+                <!-- Items Pool -->
+                <div class="items-pool-wrapper">
+                    <h4>🌟 ชิ้นที่ต้องคัดแยก:</h4>
+                    <div id="sorting-items-pool" class="items-pool">
+                        <!-- Dynamic items from JS -->
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="btn-reset-sort" class="btn btn-secondary">เริ่มคัดแยกใหม่</button>
+                </div>
+            </div>
+
+            <!-- Game B: Shape Matching Game -->
+            <div id="game-shape-container" class="tab-content">
+                <div class="game-instruction-box">
+                    <p>💡 <b>วิธีเล่น:</b> คลิกเลือกรูปทรงสีสันสดใสด้านบน แล้วคลิกที่กรอบสีเทาที่เป็นรูปทรงเดียวกันด้านล่างให้ตรงกันนะ!</p>
+                </div>
+
+                <div class="shape-arena">
+                    <!-- Shape Selection -->
+                    <div id="shape-selection-pool" class="shape-pool">
+                        <!-- Shapes generated by JS -->
+                    </div>
+
+                    <!-- Shape Targets -->
+                    <div id="shape-targets-pool" class="shape-targets">
+                        <!-- Target outlines generated by JS -->
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="btn-reset-shape" class="btn btn-secondary">เริ่มจับคู่ใหม่</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: COOPERATIVE PLAY & TEAMWORK -->
+        <section id="section-teamwork" class="game-card card-blue">
+            <div class="section-badge">การเรียนรู้ระดับที่ 2: การเล่นและทำงานแบบร่วมมือร่วมใจ 🤝</div>
+            <h2>นิทานแสนสนุก: เพื่อนรักในป่าใหญ่ 🌲🐻🐰</h2>
+            <p class="instruction-text">ลองอ่านนิทานสั้นๆ นี้ และช่วยพี่หมีกับพี่ต่ายตัดสินใจในเรื่องการแบ่งปันและความสามัคคีนะจ๊ะ!</p>
+
+            <div class="story-container">
+                <div class="story-visual">
+                    <!-- Interactive Forest SVG -->
+                    <svg viewBox="0 0 200 120" class="story-svg" width="100%">
+                        <!-- Sky & Ground -->
+                        <rect x="0" y="0" width="200" height="90" fill="#bae6fd"/>
+                        <rect x="0" y="90" width="200" height="30" fill="#86efac"/>
+                        <!-- Sun -->
+                        <circle cx="170" cy="25" r="10" fill="#facc15"/>
+                        <!-- Trees -->
+                        <g fill="#166534">
+                            <polygon points="20,95 35,60 50,95" />
+                            <polygon points="150,95 160,65 170,95" />
+                            <polygon points="165,95 175,70 185,95" />
+                        </g>
+                        <!-- Treehouse trunk & leaves -->
+                        <rect x="90" y="60" width="20" height="35" fill="#78350f" />
+                        <path d="M 80 60 Q 100 20 120 60 Z" fill="#15803d" />
+                        <rect x="92" y="45" width="16" height="15" fill="#fef3c7" stroke="#78350f" stroke-width="1.5" />
+                        <polygon points="88,45 100,35 112,45" fill="#b91c1c" />
+                        <!-- Characters (Simplified Bear & Rabbit) -->
+                        <!-- Bear -->
+                        <circle cx="65" cy="95" r="8" fill="#d97706" />
+                        <circle cx="61" cy="89" r="3" fill="#d97706" />
+                        <circle cx="69" cy="89" r="3" fill="#d97706" />
+                        <!-- Rabbit -->
+                        <circle cx="125" cy="97" r="6" fill="#f1f5f9" />
+                        <ellipse cx="123" cy="90" rx="2" ry="5" fill="#f1f5f9" />
+                        <ellipse cx="127" cy="90" rx="2" ry="5" fill="#f1f5f9" />
+                    </svg>
+                </div>
+
+                <div class="story-pages">
+                    <!-- Page 1 -->
+                    <div id="story-page-1" class="story-page active">
+                        <div class="story-bubble">
+                            <h3>📖 ตอนที่ 1: ชิงช้าเจ้าปัญหา 🧸🎠</h3>
+                            <p>"วันนี้ที่สนามเด็กเล่น มีชิงช้าแสนสนุกเพียงแค่ตัวเดียวเท่านั้น พี่หมีใจดีเดินมาเจอชิงช้าตัวนี้ และในเวลาเดียวกัน พี่กระต่ายก็วิ่งมาอยากจะเล่นชิงช้าตัวนี้เหมือนกันเลย..."</p>
+                        </div>
+                        <div class="question-box">
+                            <p class="question-text">❓ <b>เด็กๆ คิดว่า พี่หมีและพี่กระต่ายควรทำอย่างไรดีครับ?</b></p>
+                            <div class="choices-list">
+                                <button class="choice-btn" data-correct="false" data-feedback="wrong-1">
+                                    🔴 แย่งกันขึ้นไปนั่ง ใครมีแรงผลักเยอะกว่าได้เล่น!
+                                </button>
+                                <button class="choice-btn" data-correct="true" data-feedback="correct-1">
+                                    🟢 ผลัดกันเล่นคนละ 5 นาที และช่วยผลักชิงช้าให้กันอย่างสนุกสนาน
+                                </button>
+                            </div>
+                            <div id="feedback-q1" class="choice-feedback-box hidden"></div>
+                        </div>
+                        <div class="story-nav">
+                            <button id="btn-next-story" class="btn btn-primary hidden">อ่านตอนต่อไป ➡️</button>
+                        </div>
+                    </div>
+
+                    <!-- Page 2 -->
+                    <div id="story-page-2" class="story-page">
+                        <div class="story-bubble">
+                            <h3>📖 ตอนที่ 2: บ้านต้นไม้สามัคคี 🌳🏠</h3>
+                            <p>"พี่หมี พี่กระต่าย และผองเพื่อน วางแผนร่วมกันสร้างบ้านต้นไม้หลังเล็กสำหรับนอนเล่นพักผ่อน แต่ท่อนไม้ใหญ่สีน้ำตาลมีน้ำหนักมาก พี่หมีใจดีออกแรงดึงสุดแรงก็ยกไม่ขึ้นเลย..."</p>
+                        </div>
+                        <div class="question-box">
+                            <p class="question-text">❓ <b>เราจะช่วยสร้างบ้านต้นไม้นี้ให้สำเร็จได้อย่างไรดีครับ?</b></p>
+                            <div class="choices-list">
+                                <button class="choice-btn" data-correct="true" data-feedback="correct-2">
+                                    🟢 ชวนเพื่อนสัตว์ทุกคนมาช่วยกันจับเชือกและยกท่อนไม้พร้อมๆ กัน
+                                </button>
+                                <button class="choice-btn" data-correct="false" data-feedback="wrong-2">
+                                    🔴 ให้พี่หมีใจดียกคนเดียวไปเรื่อยๆ ส่วนเราไปนั่งกินไอติมรอดูดีกว่า
+                                </button>
+                            </div>
+                            <div id="feedback-q2" class="choice-feedback-box hidden"></div>
+                        </div>
+                        <div class="story-nav">
+                            <button id="btn-prev-story" class="btn btn-secondary">⬅️ ย้อนกลับ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FUN PIANO / SOUND SYNTHESIS -->
+        <section id="section-music" class="game-card card-green">
+            <div class="section-badge">การเรียนรู้ระดับที่ 3: กิจกรรมน่าสนใจ มีลูกเล่นที่น่าค้นหา 🎵</div>
+            <h2>เปียโนดนตรีและสัตว์แสนสนุก 🐶🐱🐸🐥</h2>
+            <p class="instruction-text">กดคีย์เปียโนสีรุ้งด้านล่าง เพื่อฟังเสียงตัวโน้ตและเสียงสัตว์น่ารักๆ กันเถอะ! เด็กๆ สามารถกดตามสติกเกอร์โน้ตดนตรีเพื่อเล่นเป็นเพลงได้นะ!</p>
+
+            <div class="piano-wrapper">
+                <!-- Visual Feedback Wave and animal animation -->
+                <div class="piano-stage">
+                    <div id="piano-animal-mascot" class="piano-mascot-idle">⭐</div>
+                    <div id="piano-visual-note" class="piano-note-bubble">กดคีย์บอร์ดเลย!</div>
+                </div>
+
+                <!-- Keyboard Xylophone keys -->
+                <div class="piano-keyboard">
+                    <button class="piano-key key-red" data-note="C4" data-animal="โฮ่งๆ 🐶 (สุนัข)">
+                        <span class="key-label">โด</span>
+                        <span class="animal-emoji">🐶</span>
+                    </button>
+                    <button class="piano-key key-orange" data-note="D4" data-animal="เหมียวๆ 🐱 (แมว)">
+                        <span class="key-label">เร</span>
+                        <span class="animal-emoji">🐱</span>
+                    </button>
+                    <button class="piano-key key-yellow" data-note="E4" data-animal="อ๊บๆ 🐸 (กบ)">
+                        <span class="key-label">มี</span>
+                        <span class="animal-emoji">🐸</span>
+                    </button>
+                    <button class="piano-key key-green" data-note="F4" data-animal="จิ๊บๆ 🐥 (นกน้อย)">
+                        <span class="key-label">ฟา</span>
+                        <span class="animal-emoji">🐥</span>
+                    </button>
+                    <button class="piano-key key-blue" data-note="G4" data-animal="ก้าบๆ 🦆 (เป็ด)">
+                        <span class="key-label">ซอล</span>
+                        <span class="animal-emoji">🦆</span>
+                    </button>
+                    <button class="piano-key key-indigo" data-note="A4" data-animal="แบะๆ 🐑 (แกะ)">
+                        <span class="key-label">ลา</span>
+                        <span class="animal-emoji">🐑</span>
+                    </button>
+                    <button class="piano-key key-purple" data-note="B4" data-animal="โฮกๆ 🦁 (สิงโต)">
+                        <span class="key-label">ที</span>
+                        <span class="animal-emoji">🦁</span>
+                    </button>
+                    <button class="piano-key key-pink" data-note="C5" data-animal="แปร๋นๆ 🐘 (ช้าง)">
+                        <span class="key-label">โดสูง</span>
+                        <span class="animal-emoji">🐘</span>
+                    </button>
+                </div>
+
+                <!-- Song guides for children -->
+                <div class="song-guides">
+                    <h3>🎼 ฝึกเล่นเป็นเพลงง่ายๆ กันเถอะ:</h3>
+                    <div class="guides-grid">
+                        <div class="song-card">
+                            <h4>🦆 เพลงเป็ดอาบน้ำในคลอง</h4>
+                            <p class="song-notes">ซอล - ลา - ซอล - ลา | โด - โด - เร - เร</p>
+                            <p class="song-emojis">🦆 🐑 🦆 🐑 | 🐘 🐘 🐶 🐶</p>
+                        </div>
+                        <div class="song-card">
+                            <h4>🌟 เพลงดาวดวงน้อย (Twinkle Twinkle)</h4>
+                            <p class="song-notes">โด - โด - ซอล - ซอล | ลา - ลา - ซอล</p>
+                            <p class="song-emojis">🐶 🐶 🦆 🦆 | 🐑 🐑 🦆</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: REWARD & CERTIFICATE -->
+        <section id="section-reward" class="game-card card-yellow">
+            <div class="section-badge">การเรียนรู้ระดับที่ 4: ความกระตือรือร้นในการเรียนรู้ 🏆</div>
+            <h2>แท่นรับรางวัลเกียรติบัตรคนเก่ง 🌟🎖️</h2>
+            <p class="instruction-text">สะสมดาวเด็กดีจากการทำกิจกรรมด้านบนให้ครบ 5 ดวงเพื่อเปิดล็อกเกียรติบัตร และพิมพ์ชื่อของหนูใส่ลงไปได้เลย!</p>
+
+            <div class="reward-status-card">
+                <div class="star-progress-bar">
+                    <div id="star-fill-progress" class="star-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-info-text">
+                    หนูสะสมดาวได้แล้ว <span id="reward-star-count" class="highlight-text">0</span> / 5 ดวง
+                </div>
+            </div>
+
+            <!-- Certificate Form -->
+            <div id="certificate-input-area" class="certificate-form locked">
+                <div class="lock-overlay">
+                    <span class="lock-icon">🔒</span>
+                    <h3>สะสมดาวให้ครบ 5 ดวงเพื่อรับเกียรติบัตรนะครับ!</h3>
+                    <p>สู้ๆ นะคนเก่ง เล่นเกมข้างบนให้หมดเพื่อรับดาวดวงใหม่</p>
+                </div>
+                <div class="form-content">
+                    <label for="child-name-input" class="input-label">📝 พิมพ์ชื่อเล่นหรือชื่อจริงของคนเก่งตรงนี้เลย:</label>
+                    <input type="text" id="child-name-input" class="name-input" placeholder="พิมพ์ชื่อของหนูที่นี่..." maxlength="30">
+                    <p class="helper-text">พิมพ์แล้วดูใบประกาศเกียรติบัตรที่เปลี่ยนชื่อของหนูที่ด้านล่างได้เลยจ้า!</p>
+                </div>
+            </div>
+
+            <!-- Certificate View printable -->
+            <div id="certificate-preview" class="certificate-container hidden">
+                <div class="certificate-border">
+                    <div class="certificate-inner">
+                        <!-- Corner Decorations -->
+                        <div class="cert-corner top-left">⭐</div>
+                        <div class="cert-corner top-right">🎈</div>
+                        <div class="cert-corner bottom-left">🧸</div>
+                        <div class="cert-corner bottom-right">🎨</div>
+
+                        <div class="certificate-header">
+                            <span class="cert-badge">🏅</span>
+                            <h1>เกียรติบัตรเด็กดีศรีปัญญา</h1>
+                            <p class="cert-subtitle">ดินแดนการเรียนรู้ปฐมวัยแสนสนุก</p>
+                        </div>
+
+                        <div class="certificate-body">
+                            <p>เกียรติบัตรฉบับนี้ขอมอบไว้เพื่อแสดงว่า</p>
+                            <h2 id="cert-child-name" class="cert-name">[ ชื่อเล่นของหนู ]</h2>
+                            <p class="cert-achievement">เป็นเด็กดีมีความกระตือรือร้น มีทักษะการแก้ปัญหา และรู้จักการร่วมมือแบ่งปันอย่างยอดเยี่ยม</p>
+                            <p class="cert-footer-text">สะสมดาวเด็กดีครบ 5 ดวงเรียบร้อยสมบูรณ์แบบ 🌟🌟🌟🌟🌟</p>
+                        </div>
+
+                        <div class="certificate-footer">
+                            <div class="signature-block">
+                                <div class="sig-line"></div>
+                                <p>พี่หมีใจดี</p>
+                                <p>ผู้นำทางดินแดนแสนสนุก</p>
+                            </div>
+                            <div class="signature-block">
+                                <div class="sig-line"></div>
+                                <p>พี่ต่ายผู้นำทาง</p>
+                                <p>ผู้อำนวยการสอนปฐมวัย</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-actions">
+                    <button id="btn-print-certificate" class="btn btn-primary btn-large">🖨️ พิมพ์หรือบันทึกเกียรติบัตร</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>© 2026 ดินแดนแสนสนุกปฐมวัย - ออกแบบและพัฒนาเพื่อส่งเสริมการเรียนรู้ของเด็กระดับอนุบาล 3</p>
+        <p>คุณครูสามารถนำหน้าเว็บนี้ไป deploy บน GitHub Pages ได้ตามลิงก์ที่กำหนด</p>
+    </footer>
+
+    <!-- Javascript Script -->
+    <script src="app.js"></script>
+</body>
+</html>
